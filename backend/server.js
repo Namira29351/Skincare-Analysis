@@ -7,13 +7,16 @@ import * as db from "./db/index.js";
 
 const requestHandler = express();
 
+
 const port = process.env.PORT;
 requestHandler.use(express.json());
-
 requestHandler.listen(port, () => {
     console.log(`Server listening on port ${port}`);
   });
 
-requestHandler.get("/api/v1/get-template", (req, res) => {
-    res.send("Hello World!");
+
+requestHandler.get("/api/v1/skincare-analysis-data", async (req, res) => {
+    const dbResponse = await db.query("select * from product_results limit 5");
+    console.log(dbResponse);
+    res.send(dbResponse);
   });
