@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AppNavbar from './components/layout/AppNavbar';
+import Home from './features/analysis/components/Home';
+import BrandPopularity from './features/analysis/components/BrandPopularity';
+import ProductPopularity from './features/analysis/components/ProductPopularity';
+import ProductPrice from './features/analysis/components/ProductPrices';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Editing
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AppNavbar />
+      <div className="container mt-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/BrandPopularity" element={<BrandPopularity />} />
+          <Route path="/ProductPopularity" element={<ProductPopularity />} />
+          <Route path="/ProductPrice" element={<ProductPrice />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
-
 export default App;
