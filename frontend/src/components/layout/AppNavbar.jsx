@@ -1,10 +1,11 @@
-
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const AppNavbar = () => {
   return (
@@ -20,17 +21,21 @@ const AppNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
 
-            <NavDropdown title="Analysis" id="basic-nav-dropdown">
+            <NavDropdown title="Options" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to="/BrandPopularity">
-                Popularity of different brands
+                Popularity of different brands Analysis
               </NavDropdown.Item>
-              
+              <NavDropdown.Item as={NavLink} to="/BrandPopularityGraph">
+                Popularity of different brands Graph
+              </NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/ProductPopularity">
-                Popularity of different products
+                Popularity of different products Analysis
               </NavDropdown.Item>
-              
+              <NavDropdown.Item as={NavLink} to="/ProductPopularityGraph">
+                Popularity of different products Graph
+              </NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/ProductPrice">
-                Prices of different products
+                Prices of different products Analysis
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
