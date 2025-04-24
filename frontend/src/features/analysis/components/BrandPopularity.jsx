@@ -1,28 +1,43 @@
 import React from "react";
+import DataTable from "react-data-table-component";
 
-
+const columns = [
+  {
+    name: "Brand",
+    selector: row => row.brand,
+  },
+  {
+    name: "Rating",
+    selector: row => row.rating,
+  }
+]
+const data = [
+  {
+    brand: "DRUNK ELEPHANT",
+    rating: 4.2,
+  },
+  {
+    brand: "LA MER",
+    rating: 0.2,
+  },
+  {
+    brand: "IT COSMETICS",
+    rating: 1.2,
+  },  
+  {
+    brand: "IT COSMETICS",
+    rating: 4.2,
+  },  
+  {
+    brand: "TATCHA",
+    rating: 1.2,
+  },    
+]
 function BrandPopularity() {
   return (
-  <div className="App"> Popularity of Different Brands
-      <table>
-          <tr>
-              <th>Brand</th>
-              <th>Rating</th>
-          </tr>
-          <tr>
-              <td>DRUNK ELEPHANT</td>
-              <td>4.3</td>
-          </tr>
-          <tr>
-              <td>LA MER</td>
-              <td>1.3 </td>
-          </tr>
-          <tr>
-              <td>LANIEGE</td>
-              <td>0.4</td>
-          </tr>
-      </table>
-  </div>
+    <DataTable 
+    columns={columns}
+    data={data}/>
   );
   }
   
