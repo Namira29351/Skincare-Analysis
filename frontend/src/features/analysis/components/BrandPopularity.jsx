@@ -35,9 +35,12 @@ const data = [
 ]
 function BrandPopularity() {
   return (
-    <DataTable 
-    columns={columns}
-    data={data}/>
+    <div>
+      <h1>Different Brands and Their Popularity</h1>
+      <DataTable 
+      columns={columns}
+      data={data}/>
+    </div>
   );
   }
   

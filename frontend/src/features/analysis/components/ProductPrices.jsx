@@ -3,41 +3,44 @@ import DataTable from "react-data-table-component";
 
 const columns = [
   {
-    name: "Brand",
-    selector: row => row.brand,
+    name: "Product",
+    selector: row => row.product,
   },
   {
-    name: "Rating",
-    selector: row => row.rating,
+    name: "Price",
+    selector: row => row.price,
   }
 ]
 const data = [
   {
-    brand: "DRUNK ELEPHANT",
-    rating: 4.2,
+    product: "Face Mask",
+    price: 4,
   },
   {
-    brand: "LA MER",
-    rating: 0.2,
+    product: "Cleanser",
+    price: 2.2,
   },
   {
-    brand: "IT COSMETICS",
-    rating: 1.2,
+    product: "Eye cream",
+    price: 0.2,
   },  
   {
-    brand: "IT COSMETICS",
-    rating: 4.2,
+    product: "Sun protection",
+    price: 4.5,
   },  
   {
-    brand: "TATCHA",
-    rating: 1.2,
+    product: "Eye cream",
+    price: 3.5,
   },    
 ]
 function ProductPrices() {
   return (
-    <DataTable 
-    columns={columns}
-    data={data}/>
+    <div>
+      <h1>Different Products and Their Prices</h1>
+      <DataTable 
+      columns={columns}
+      data={data}/>
+    </div>
   );
   }
   

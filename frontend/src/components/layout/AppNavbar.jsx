@@ -34,7 +34,7 @@ const AppNavbar = () => {
               <NavDropdown.Item as={NavLink} to="/ProductPopularityGraph">
                 Popularity of different products Graph
               </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/ProductPrice">
+              <NavDropdown.Item as={NavLink} to="/ProductPrices">
                 Prices of different products Analysis
               </NavDropdown.Item>
             </NavDropdown>

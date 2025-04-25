@@ -4,9 +4,9 @@ import AppNavbar from './components/layout/AppNavbar';
 import Home from './features/analysis/components/Home';
 import BrandPopularity from './features/analysis/components/BrandPopularity';
 import ProductPopularity from './features/analysis/components/ProductPopularity';
-import ProductPrice from './features/analysis/components/ProductPrices';
 import BrandPopularityGraph from './features/analysis/components/BrandPopularityGraph';
 import ProductPopularityGraph from './features/analysis/components/ProductPopularityGraph';
+import ProductPrices from './features/analysis/components/ProductPrices';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path="/BrandPopularityGraph" element={<BrandPopularityGraph />} />
           <Route path="/ProductPopularity" element={<ProductPopularity />} />
           <Route path="/ProductPopularityGraph" element={<ProductPopularityGraph />} />
-          <Route path="/ProductPrice" element={<ProductPrice />} />
+          <Route path="/ProductPrices" element={<ProductPrices />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -3,8 +3,8 @@ import DataTable from "react-data-table-component";
 
 const columns = [
   {
-    name: "Brand",
-    selector: row => row.brand,
+    name: "Product",
+    selector: row => row.product,
   },
   {
     name: "Rating",
@@ -13,31 +13,34 @@ const columns = [
 ]
 const data = [
   {
-    brand: "Face Mask",
+    product: "Face Mask",
     rating: 4,
   },
   {
-    brand: "Cleanser",
+    product: "Cleanser",
     rating: 2.2,
   },
   {
-    brand: "Eye cream",
+    product: "Eye cream",
     rating: 0.2,
   },  
   {
-    brand: "Sun protection",
+    product: "Sun protection",
     rating: 4.5,
   },  
   {
-    brand: "Eye cream",
+    product: "Eye cream",
     rating: 3.5,
   },    
 ]
 function ProductPopularity() {
   return (
-    <DataTable 
-    columns={columns}
-    data={data}/>
+    <div>
+      <h1>Different Products and Their Popularity</h1>
+      <DataTable 
+      columns={columns}
+      data={data}/>
+    </div>
   );
   }
   
