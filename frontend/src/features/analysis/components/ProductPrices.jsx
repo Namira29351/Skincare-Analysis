@@ -18,19 +18,19 @@ const data = [
   },
   {
     product: "Cleanser",
-    price: 2.2,
+    price: 22,
   },
   {
     product: "Eye cream",
-    price: 0.2,
+    price: 20,
   },  
   {
     product: "Sun protection",
-    price: 4.5,
+    price: 45,
   },  
   {
     product: "Eye cream",
-    price: 3.5,
+    price: 35,
   },    
 ]
 function ProductPrices() {
