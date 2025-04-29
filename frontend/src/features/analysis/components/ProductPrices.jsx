@@ -36,7 +36,7 @@ const data = [
 function ProductPrices() {
   return (
     <div>
-      <h1>Different Products and Their Prices</h1>
+      <h1 style={{ width: "73%", height:"40px", padding:"0px", float: "right" }}>Different Products and Their Prices</h1>
       <DataTable 
       columns={columns}
       data={data}/>

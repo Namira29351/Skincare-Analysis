@@ -36,7 +36,7 @@ const data = [
 function BrandPopularity() {
   return (
     <div>
-      <h1>Different Brands and Their Popularity</h1>
+      <h1 style={{ width: "73%", height:"40px", padding:"0px", float: "right" }}>Different Brands and Their Popularity</h1>
       <DataTable 
       columns={columns}
       data={data}/>
