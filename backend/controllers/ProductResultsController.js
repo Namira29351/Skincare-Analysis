@@ -2,7 +2,7 @@ import * as db from "../db/index.js";
 
 export const getBrandPopularity = async (req, res) => {
     try {
-      const dbResponse = await db.query("SELECT brand, AVG(rank) as popularity FROM product_results GROUP BY brand");
+      const dbResponse = await db.query("SELECT brand, AVG(rank) as popularity FROM product_results GROUP BY brand limit 20");
       const result = dbResponse.rows.map ((row) => (
         {Brand: row.brand, Popularity: parseFloat(row.popularity.toFixed(1))
         }
@@ -15,7 +15,7 @@ export const getBrandPopularity = async (req, res) => {
   }
 
 
-  export const getProductPrice = async (req, res) => {
+  export const getProductPrices = async (req, res) => {
     try {
       const dbResponse = await db.query(`
         SELECT "Label", AVG(price) as price 

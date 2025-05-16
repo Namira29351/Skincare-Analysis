@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -19,41 +20,59 @@ ChartJS.register(
   Legend
 );
 
+function BarChart () {
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [],
+  });
 
-const brandData = [
-  { brand: "DRUNK ELEPHANT", rating: 4.3 },
-  { brand: "LA MER", rating: 4.1},
-  { brand: "IT COSMETICS", rating: 1.3 },
-  { brand: "JOSIE MARAN", rating: 2.1 },
-  { brand: "LANIEGE", rating: 0.4 },
-  { brand: "TATCHA", rating: 3.1 },
-  { brand: "CLINIQUE", rating: 5.0 },
-  { brand: "DRUNK ELEPHANT", rating: 3.8 },
-];
+  const [loading, setLoading] = useState(true);
 
-const BarChart = () => {
-  const labels = brandData.map((item) => item.brand);
-  const avgRating = brandData.map((item) => item.rating);
+  const [error, setError] = useState(null);
 
-  const chartData = {
-    labels: labels,
-    datasets: [
-      {
-        label: "Rating",
-        data: avgRating,
-        backgroundColor: avgRating.map((value) => {
-          if (value <= 1) return "rgba(215, 163, 252, 0.77)";
-          if (value <= 2) return "rgba(255, 160, 209, 0.77)";
-          if (value <= 3) return "rgba(134, 182, 255, 0.77)";
-          if (value <= 4) return "rgba(129, 250, 200, 0.77)"; 
-          if (value <= 5) return "rgba(255, 255, 153, 0.77)"; 
-        }),
-        borderColor: "rgba(59, 53, 57, 0.77)",
-        borderWidth: 1,
-      },
-    ],
-  };
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await fetch("/api/v1/BrandPopularity")
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: {response.status}`)
+        }
+        const data = await response.json()
+        const formattedData = {
+          labels: data.map((item) => item.Brand),
+          datasets: [
+            {
+              label: "Brand Popularity",
+              data: data.map((item) => item.Popularity),
+              backgroundColor: data.map((item) => {
+                const value = item.Popularity;
+                if (value <= 1) return "rgba(215, 163, 252, 0.77)";
+                if (value <= 2) return "rgba(255, 160, 209, 0.77)";
+                if (value <= 3) return "rgba(134, 182, 255, 0.77)";
+                if (value <= 4) return "rgba(129, 250, 200, 0.77)"; 
+                if (value <= 5) return "rgba(255, 255, 153, 0.77)";
+                return "rgba(126, 0, 35, 0.6)"; 
+              }),
+              borderColor: "rgba(149, 198, 244, 0.77)",
+              borderWidth: 1,
+            },
 
+          ],
+        };
+        setChartData(formattedData)
+      } catch (err) {
+        setError(err.message);
+        console.error("Error fetching data: ", err)
+      } finally {
+        setLoading(false)
+      }
+  
+    }
+    fetchData();
+
+  }, [])
   const options = {
     responsive: true,
     plugins: {
@@ -81,7 +100,12 @@ const BarChart = () => {
       },
     },
   };
-
+  if (loading) {
+    return <div>Loading chart</div>
+  }
+  if (error) {
+    return <div>Error while loading: {error}</div>
+  }
   return (
     <div style={{ width: "80%", margin: "0 auto" }}>
       <Bar data={chartData} options={options} />
@@ -90,3 +114,4 @@ const BarChart = () => {
 };
 
 export default BarChart;
+
