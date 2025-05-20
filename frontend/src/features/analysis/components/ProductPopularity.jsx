@@ -1,47 +1,35 @@
-import React from "react";
-import DataTable from "react-data-table-component";
+import React, { useState, useEffect } from "react";
 
-const columns = [
-  {
-    name: "Product",
-    selector: row => row.product,
-  },
-  {
-    name: "Rating",
-    selector: row => row.rating,
-  }
-]
-const data = [
-  {
-    product: "Face Mask",
-    rating: 4,
-  },
-  {
-    product: "Cleanser",
-    rating: 2.2,
-  },
-  {
-    product: "Eye cream",
-    rating: 0.2,
-  },  
-  {
-    product: "Sun protection",
-    rating: 4.5,
-  },  
-  {
-    product: "Eye cream",
-    rating: 3.5,
-  },    
-]
 function ProductPopularity() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      setError(null)
+      try {
+        const response = await fetch("/api/v1/ProductPopularity")
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: {response.status}`)
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err.message);
+        console.error("Error fetching data: ", err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData();
+  }, []) 
+
+  if (loading) return <div>Loading</div>
+  if (error) return <div>Error: {error}</div>;
+
   return (
-    <div>
-      <h1 style={{ width: "73%", height:"40px", padding:"0px", float: "right" }}>Different Products and Their Popularity</h1>
-      <DataTable 
-      columns={columns}
-      data={data}/>
-    </div>
-  );
-  }
-  
-  export default ProductPopularity;
+    <div></div>
+  )
+}
