@@ -8,6 +8,7 @@ import BrandPopularityGraph from './features/analysis/components/BrandPopularity
 import ProductPopularityGraph from './features/analysis/components/ProductPopularityGraph';
 import ProductPrices from './features/analysis/components/ProductPrices';
 import ProductPricesGraph from './features/analysis/components/ProductPricesGraph';
+import AboutMe from './features/aboutMe/components/AboutMe';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/ProductPopularityGraph" element={<ProductPopularityGraph />} />
           <Route path="/ProductPrices" element={<ProductPrices />} />
           <Route path="/ProductPricesGraph" element={<ProductPricesGraph />} />
+          <Route path="/AboutMe" element={<AboutMe />} />
         </Routes>
       </div>
     </BrowserRouter>

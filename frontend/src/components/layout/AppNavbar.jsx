@@ -40,6 +40,9 @@ const AppNavbar = () => {
               <NavDropdown.Item as={NavLink} to="/ProductPricesGraph">
                 Prices of different products Graph
               </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/AboutMe">
+                About Me Page
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
