@@ -7,7 +7,7 @@ function ProductPopularity() {
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
+      setLoading(true)
       setError(null)
       try {
         const response = await fetch("/api/v1/ProductPopularity")
@@ -24,12 +24,36 @@ function ProductPopularity() {
       }
     }
     fetchData();
-  }, []) 
+   }, [])
 
-  if (loading) return <div>Loading</div>
-  if (error) return <div>Error: {error}</div>;
+   if (loading) return <div>Loading</div>;
+   if (error) return <div>Error: {error}</div>;
 
-  return (
-    <div></div>
-  )
+   return (
+
+    <div style={{ width: "100%", height:"20px", padding:"0px", float:"right" }}>
+      <h1 style={{ width: "62%", height:"60px", padding:"0px", float:"right" }}>Product Popularity</h1>
+      <table style={{ width: "100%", borderCollapse: "collapse"}}>
+        <thead>
+          <tr>
+            <th style={{ border: "1px solid #ccc", padding: "8px" }}>
+              Product
+            </th>
+            <th style={{ border: "1px solid #ccc", padding: "8px" }}>
+              Popularity
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, idx) => (
+          <tr key={idx}>
+            <td style={{ border: "1px solid #ccc", padding: "8px"}}>{item.Product}</td>
+            <td style={{ border: "1px solid #ccc", padding: "8px"}}>{item.Popularity}</td>
+          </tr>))}
+        </tbody>
+      </table>
+    </div>
+   )
 }
+
+  export default ProductPopularity;
