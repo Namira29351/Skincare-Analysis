@@ -27,9 +27,7 @@ To change which columns the project analyzes, go to backend/controllers/productR
 ## Wireframes
 Before I started to code my project I made wireframes to show myself what I want to make:
 
-
-![alt text](https://file%2B.vscode-resource.vscode-cdn.net/Users/student/Desktop/Skincare_Analysis/frontend/public/Screenshot%202025-03-06%20at%205.26.41%E2%80%AFPM.png?version%3D1748565475877)
-
+![alt text](<frontend/public/Screenshot 2025-03-06 at 5.26.41 PM.png>)
 ![alt text](<frontend/public/Screenshot 2025-03-06 at 5.29.58 PM.png>)
 ![alt text](<frontend/public/Screenshot 2025-03-06 at 5.30.25 PM.png>)
 ![alt text](<frontend/public/Screenshot 2025-03-06 at 5.29.22 PM.png>)
